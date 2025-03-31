@@ -1,1 +1,45 @@
-<p>carroslist works!</p>
+<div class="car-list-container">
+    <h2>Below you can validate the list of cars</h2>
+    <button class="new-car-button">NOVO</button>
+  
+    <table class="car-list-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Cambio</th>
+          <th>Marca</th>
+          <th>Placa</th>
+          <th>KM</th>
+          <th>Combustivel</th>
+          <th>Ano</th>
+          <th>Valor</th>
+          <th>Financiamento</th>
+          <th>Ações</th> 
+
+        </tr>
+      </thead>
+      <tbody>
+        @for (carro of lista; track $index) {
+        <tr>
+
+          <td>{{ carro.id }}</td>
+          <td>{{ carro.nome }}</td>
+          <td>{{ carro.cambio }}</td>
+          <td>{{ carro.marca }}</td>
+          <td>{{ carro.placa }}</td>
+          <td>{{ carro.km }}</td>
+          <td>{{ carro.combustivel }}</td>
+          <td>{{ carro.ano }}</td>
+          <td>{{ carro.valor }}</td>
+          <td>{{ carro.financiamento }}</td>
+          <td>
+            <button class="edit-button">EDITAR</button>
+            <button class="delete-button">DELETAR</button>
+
+          </td>
+        </tr>
+    }
+      </tbody>
+    </table>
+  </div>

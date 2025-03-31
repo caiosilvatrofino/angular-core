@@ -1,0 +1,46 @@
+.navbar {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 0;
+  }
+  
+  .container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .menu li {
+    margin-left: 20px;
+  }
+  
+  .menu li:first-child {
+    margin-left: 0;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 0;
+    display: block;
+  }
+  
+  .menu a:hover {
+    color: #ccc;
+  }
