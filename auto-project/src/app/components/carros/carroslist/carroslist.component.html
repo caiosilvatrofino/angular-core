@@ -1,6 +1,6 @@
 <div class="car-list-container">
     <h2>Below you can validate the list of cars</h2>
-    <button class="new-car-button">NOVO</button>
+    <button class="new-car-button" routerLink="/admin/carros/new">NOVO</button>
   
     <table class="car-list-table">
       <thead>
@@ -31,11 +31,11 @@
           <td>{{ carro.km }}</td>
           <td>{{ carro.combustivel }}</td>
           <td>{{ carro.ano }}</td>
-          <td>{{ carro.valor }}</td>
+          <td>{{ carro.valor }}</td>  
           <td>{{ carro.financiamento }}</td>
-          <td>
-            <button class="edit-button">EDITAR</button>
-            <button class="delete-button">DELETAR</button>
+          <td class="direita">
+            <button class="edit-button" routerLink="/admin/carros/edit/{{carro.id}}">EDITAR</button>
+            <button class="delete-button" (click)="deleteById(carro)">DELETAR</button>
 
           </td>
         </tr>
