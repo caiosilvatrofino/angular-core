@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Carro } from '../../../models/carro';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-carrosdetail',
-  imports: [[FormsModule, RouterLink]],
+  imports: [[FormsModule]],
   templateUrl: './carrosdetail.component.html',
   styleUrl: './carrosdetail.component.scss'
 })
@@ -37,6 +37,12 @@ export class CarrosdetailComponent {
       this.router2.navigate(['admin/carros'], {state: {carroNovo: this.carro}});
     }
     
+  }
+
+  close(){
+    if(confirm('Certeza que deseja fechar?')){
+    this.router2.navigate(['/admin/carros'])
+    }
   }
 
 }

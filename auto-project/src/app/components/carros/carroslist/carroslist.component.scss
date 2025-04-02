@@ -1,17 +1,16 @@
 .car-list-container {
-    background-color: #f8f9fa; /* Cor de fundo clara */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-  }
-  
-  .car-list-container h2 {
+  background-color: #f8f9fa; /* Cor de fundo clara */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+
+  h2 {
     margin-top: 0;
     margin-bottom: 20px;
     color: #343a40; /* Cor de texto escura */
   }
-  
+
   .new-car-button {
     background-color: #007bff; /* Azul */
     color: white;
@@ -21,68 +20,99 @@
     cursor: pointer;
     float: right;
     margin-bottom: 20px;
+
+    &:hover {
+      background-color: #0056b3;
+    }
   }
-  
-  .new-car-button:hover {
-    background-color: #0056b3;
-  }
-  
+
   .car-list-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
     background-color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  }
-  
-  .car-list-table th,
-  .car-list-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #dee2e6;
-  }
-  
-  .car-list-table th {
-    background-color: #e9ecef;
-    color: #495057;
-    font-weight: bold;
-  }
-  
-  .car-list-table tbody tr:last-child td {
-    border-bottom: none;
-  }
-  
-  .car-list-table td button {
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 5px;
-  }
-  
-  .car-list-table td button:last-child {
-    margin-right: 0;
-  }
-  
-  .car-list-table td button.edit-button {
-    background-color: #007bff; /* Azul */
-    color: white;
-  }
-  
-  .car-list-table td button.edit-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .car-list-table td button.delete-button {
-    background-color: #dc3545; /* Vermelho */
-    color: white;
-  }
-  
-  .car-list-table td button.delete-button:hover {
-    background-color: #c82333;
-    
+
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #dee2e6;
+    }
+
+    th {
+      background-color: #e9ecef;
+      color: #495057;
+      font-weight: bold;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    td button {
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 5px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &.edit-button {
+        background-color: #007bff; /* Azul */
+        color: white;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+
+      &.delete-button {
+        background-color: #dc3545; /* Vermelho */
+        color: white;
+
+        &:hover {
+          background-color: #c82333;
+        }
+      }
+    }
   }
 
-  .delete-button {
-    color: #c82333;
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  
+    button {
+      padding: 8px 16px;
+      margin: 0 5px;
+      border: 1px solid #ccc;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      color: #333;
+  
+      &:hover {
+        background-color: #e0e0e0;
+      }
+  
+      &:disabled {
+        background-color: #ddd;
+        cursor: not-allowed;
+        color: #999;
+        border-color: #ddd;
+      }
+    }
+  
+    span {
+      margin: 0 10px;
+      font-weight: bold;
+      color: #333;
+    }
   }
+}

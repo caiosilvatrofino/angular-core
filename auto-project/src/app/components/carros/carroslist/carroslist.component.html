@@ -1,28 +1,26 @@
 <div class="car-list-container">
-    <h2>Below you can validate the list of cars</h2>
-    <button class="new-car-button" routerLink="/admin/carros/new">NOVO</button>
-  
-    <table class="car-list-table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nome</th>
-          <th>Cambio</th>
-          <th>Marca</th>
-          <th>Placa</th>
-          <th>KM</th>
-          <th>Combustivel</th>
-          <th>Ano</th>
-          <th>Valor</th>
-          <th>Financiamento</th>
-          <th>Ações</th> 
+  <h2>Below you can validate the list of cars</h2>
+  <button class="new-car-button" routerLink="/admin/carros/new">NEW</button>
 
-        </tr>
-      </thead>
-      <tbody>
-        @for (carro of lista; track $index) {
+  <table class="car-list-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Cambio</th>
+        <th>Marca</th>
+        <th>Placa</th>
+        <th>KM</th>
+        <th>Combustivel</th>
+        <th>Ano</th>
+        <th>Valor</th>
+        <th>Financiamento</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (carro of pagedLista; track $index) {
         <tr>
-
           <td>{{ carro.id }}</td>
           <td>{{ carro.nome }}</td>
           <td>{{ carro.cambio }}</td>
@@ -31,15 +29,20 @@
           <td>{{ carro.km }}</td>
           <td>{{ carro.combustivel }}</td>
           <td>{{ carro.ano }}</td>
-          <td>{{ carro.valor }}</td>  
+          <td>{{ carro.valor }}</td>
           <td>{{ carro.financiamento }}</td>
           <td class="direita">
-            <button class="edit-button" routerLink="/admin/carros/edit/{{carro.id}}">EDITAR</button>
-            <button class="delete-button" (click)="deleteById(carro)">DELETAR</button>
-
+            <button class="edit-button" routerLink="/admin/carros/edit/{{carro.id}}">EDIT</button>
+            <button class="delete-button" (click)="deleteById(carro)">DELETE</button>
           </td>
         </tr>
-    }
-      </tbody>
-    </table>
+      }
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Before</button>
+    <span>Página {{ currentPage }} de {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
   </div>
+</div>
