@@ -11,22 +11,22 @@ import { FormsModule } from '@angular/forms';
 })
 export class CarrosdetailComponent {
 
-  carro: Carro = new Carro(0,"",0,"","","",0,"",0,"");
+  carro: Carro = new Carro();
 
   router = inject(ActivatedRoute)
   router2 = inject(Router);
 
   constructor(){
     let id = this.router.snapshot.params['id'];
-    if(id > 0) {
-      this.findById(id);
-    }
+    // if(id > 0) {
+    //   this.findById(id);
+    // }
   }
 
-  findById(id: number){
-    let carroReturned: Carro = new Carro(id, 'Punto', 2014, 'Automatico','Fiat','554-151', 130.000, 'FLEX', 35.000, 'SIM');
-    this.carro = carroReturned;
-  }
+  // findById(id: number){
+  //   let carroReturned: Carro = new Carro(id, 'Punto', 2014, 'Automatico','Fiat','554-151', 130.000, 'FLEX', 35.000, 'SIM');
+  //   this.carro = carroReturned;
+  // }
 
   save(){
     if(this.carro.id > 0 ) {

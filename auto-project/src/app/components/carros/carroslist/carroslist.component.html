@@ -7,13 +7,12 @@
       <tr>
         <th>ID</th>
         <th>Nome</th>
-        <th>Cambio</th>
-        <th>Marca</th>
-        <th>Placa</th>
-        <th>KM</th>
-        <th>Combustivel</th>
         <th>Ano</th>
-        <th>Valor</th>
+        <th>Marca</th>
+        <th>CNPJ</th>
+        <th>Proprietários</th>
+        <th>Combustível</th>
+        <th>Câmbio</th>
         <th>Financiamento</th>
         <th>Ações</th>
       </tr>
@@ -23,13 +22,16 @@
         <tr>
           <td>{{ carro.id }}</td>
           <td>{{ carro.nome }}</td>
-          <td>{{ carro.cambio }}</td>
-          <td>{{ carro.marca }}</td>
-          <td>{{ carro.placa }}</td>
-          <td>{{ carro.km }}</td>
-          <td>{{ carro.combustivel }}</td>
           <td>{{ carro.ano }}</td>
-          <td>{{ carro.valor }}</td>
+          <td>{{ carro.marca.nome }}</td>
+          <td>{{ carro.marca.cnpj }}</td>
+          <td>
+            @for (proprietario of carro.proprietarios; track $index) {
+              <div>{{ proprietario.nome }} ({{ proprietario.idade }} anos)</div>
+            }
+          </td>
+          <td>{{ carro.combustivel }}</td>
+          <td>{{ carro.cambio }}</td>
           <td>{{ carro.financiamento }}</td>
           <td class="direita">
             <button class="edit-button" routerLink="/admin/carros/edit/{{carro.id}}">EDIT</button>
