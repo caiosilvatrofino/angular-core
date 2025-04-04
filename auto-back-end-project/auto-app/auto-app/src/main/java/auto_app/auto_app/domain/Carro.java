@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.util.List;
 
 @Getter
@@ -22,6 +21,11 @@ public class Carro {
     private Long id;
     private String nome;
     private int ano;
+    private String cambio;
+    private String placa;
+    private String km;
+    private String combustivel;
+    private String financiamento;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JsonIgnoreProperties("carros")
