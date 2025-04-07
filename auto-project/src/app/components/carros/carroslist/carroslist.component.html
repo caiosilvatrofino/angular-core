@@ -1,18 +1,65 @@
 <div class="car-list-container">
-  <h2>Find your car to bought</h2>
-  <button class="new-car-button" routerLink="/admin/carros/new">NEW</button>
+  <div class="car-list-header">
+    <h2>Find your perfect car to buy.</h2>
+    <button class="new-car-button" routerLink="/admin/carros/new">NEW</button>
+  </div>
+
+  <div class="filters-container">
+    <h3>Filter By</h3>
+    <div class="filter-row">
+      <div class="filter-group">
+        <label for="filterNome">Nome:</label>
+        <input type="text" id="filterNome" (input)="applyFilter('nome', $event)">
+      </div>
+      <div class="filter-group">
+        <label for="filterAno">Ano:</label>
+        <input type="number" id="filterAno" (input)="applyFilter('ano', $event)">
+      </div>
+      <div class="filter-group">
+        <label for="filterMarca">Marca:</label>
+        <input type="text" id="filterMarca" (input)="applyFilter('marca.nome', $event)">
+      </div>
+      <div class="filter-group">
+        <label for="filterCombustivel">Combustível:</label>
+        <select id="filterCombustivel" (change)="applyFilter('combustivel', $event)">
+          <option value="">Todos</option>
+          <option value="Gasolina">Gasolina</option>
+          <option value="Diesel">Diesel</option>
+          <option value="Flex">Flex</option>
+          <option value="Elétrico">Elétrico</option>
+          <option value="Híbrido">Híbrido</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filterCambio">Câmbio:</label>
+        <select id="filterCambio" (change)="applyFilter('cambio', $event)">
+          <option value="">Todos</option>
+          <option value="Manual">Manual</option>
+          <option value="Automático">Automático</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filterFinanciamento">Financiamento:</label>
+        <select id="filterFinanciamento" (change)="applyFilter('financiamento', $event)">
+          <option value="">Todos</option>
+          <option value="Sim">Sim</option>
+          <option value="Não">Não</option>
+        </select>
+      </div>
+    </div>
+  </div>
 
   <table class="car-list-table">
     <thead>
       <tr>
-        <th>Nome</th>
-        <th>Ano</th>
-        <th>Marca</th>
+        <th><button (click)="sortBy('nome')">Nome</button></th>
+        <th><button (click)="sortBy('ano')">Ano</button></th>
+        <th><button (click)="sortBy('marca.nome')">Marca</button></th>
         <th>CNPJ</th>
         <th>Proprietários</th>
-        <th>Combustível</th>
-        <th>Câmbio</th>
-        <th>Financiamento</th>
+        <th><button (click)="sortBy('combustivel')">Combustível</button></th>
+        <th><button (click)="sortBy('cambio')">Câmbio</button></th>
+        <th><button (click)="sortBy('financiamento')">Financiamento</button></th>
         <th>Ações</th>
       </tr>
     </thead>
@@ -33,17 +80,15 @@
           <td>{{ carro.financiamento }}</td>
           <td class="direita">
             <div class="actions-wrapper">
-            <button class="edit-button" routerLink="/admin/carros/edit/{{carro.id}}">EDIT</button>
-            <button class="acessorios" (click)="deleteById(carro)">ACESSÓRIOS</button>
-            <button class="delete-button" (click)="deleteById(carro)">DELETE</button>
-            
-          </div>
+              <button class="edit-button" routerLink="/admin/carros/edit/{{carro.id}}">EDIT</button>
+              <button class="acessorios" (click)="managerAcessories()">ACESSÓRIOS</button>
+              <button class="delete-button" (click)="deleteById(carro)">DELETE</button>
+            </div>
           </td>
         </tr>
       }
     </tbody>
   </table>
-
 
   <div class="pagination">
     <button (click)="previousPage()" [disabled]="currentPage === 1">Before</button>
