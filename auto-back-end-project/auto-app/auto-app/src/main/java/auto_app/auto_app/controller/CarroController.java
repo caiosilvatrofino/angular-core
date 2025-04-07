@@ -23,8 +23,9 @@ public class CarroController {
         try{
             String message = this.carroSvc.save(car);
             return new ResponseEntity<>(message, HttpStatus.CREATED);
-        }catch(Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            e.printStackTrace(); // loga o erro
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro ao salvar carro: " + e.getMessage());
         }
     }
 

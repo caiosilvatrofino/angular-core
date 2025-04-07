@@ -22,6 +22,6 @@ public class Proprietario {
 
     private String nome;
 
-    private int idade;
+    private String idade;
 
 }

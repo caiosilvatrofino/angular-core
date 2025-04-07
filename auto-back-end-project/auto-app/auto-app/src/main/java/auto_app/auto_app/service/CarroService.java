@@ -18,6 +18,9 @@ public class CarroService {
 
 
     public String save(Carro car){
+        if (car.getId() != null && car.getId() == 0) {
+            car.setId(null);
+        }
         this.carroRepository.save(car);
         return "Car saved with success!";
     }
