@@ -5,7 +5,6 @@
   <table class="car-list-table">
     <thead>
       <tr>
-        <th>ID</th>
         <th>Nome</th>
         <th>Ano</th>
         <th>Marca</th>
@@ -20,7 +19,6 @@
     <tbody>
       @for (carro of pagedLista; track $index) {
         <tr>
-          <td>{{ carro.id }}</td>
           <td>{{ carro.nome }}</td>
           <td>{{ carro.ano }}</td>
           <td>{{ carro.marca.nome }}</td>
@@ -41,6 +39,7 @@
       }
     </tbody>
   </table>
+
 
   <div class="pagination">
     <button (click)="previousPage()" [disabled]="currentPage === 1">Before</button>

@@ -1,6 +1,12 @@
 export class Proprietario {
 
-    id!: number;
+    id?: number;
     nome!: string;
-    idade!: number;
-}
+    idade!: string;
+  
+    constructor(nome: string, idade: string ) {
+      this.nome = nome;
+      this.idade = idade;
+    }
+  }
+  

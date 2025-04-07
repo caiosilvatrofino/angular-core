@@ -7,8 +7,16 @@
       </div>
       <div class="form-group">
           <label for="marca">Marca:</label>
-          <input type="text" id="marca" name="marca" [(ngModel)]="carro.marca">
+          <input type="text" id="marca" name="marca" [(ngModel)]="carro.marca.nome">
       </div>
+      <div class="form-group">
+        <label for="marca">CNPJ Marca:</label>
+        <input type="text" id="marca" name="marca" [(ngModel)]="carro.marca.cnpj">
+    </div>
+    <div class="form-group">
+      <label for="marca">Cambio:</label>
+      <input type="text" id="cambio" name="cambio" [(ngModel)]="carro.cambio">
+  </div>
       <div class="form-group">
           <label for="ano">Ano:</label>
           <input type="number" id="ano" name="ano" [(ngModel)]="carro.ano">
@@ -18,15 +26,34 @@
           <input type="text" id="placa" name="placa" [(ngModel)]="carro.placa">
       </div>
       <div class="form-group">
-          <label for="combustivel">Combustível:</label>
-          <select id="combustivel" name="combustivel" [(ngModel)]="carro.combustivel">
-              <option value="">Selecione</option>
-              <option value="gasolina">Gasolina</option>
-              <option value="etanol">Etanol</option>
-              <option value="diesel">Diesel</option>
-              <option value="flex">Flex</option>
-              <option value="eletrico">Elétrico</option>
-          </select>
+        <label for="placa">Tipo de combustivel:</label>
+        <input type="text" id="combustivel" name="combustivel" [(ngModel)]="carro.combustivel">
+      </div>
+
+      <div class="form-group">
+        <label for="placa">Financiamento</label>
+        <input type="text" id="financiamento" name="financiamento" [(ngModel)]="carro.financiamento">
+      </div>
+
+      <div class="form-group">
+        <label for="placa">Kilometragem</label>
+        <input type="text" id="kilometragem" name="kilometragem" [(ngModel)]="carro.km">
+      </div>
+
+      <div class="form-group">
+        @for (proprietario of carro.proprietarios; track $index) {
+            <div>
+                <label for="nome-{{ $index }}">Proprietario:</label>
+                <input type="text" id="nome-{{ $index }}" name="proprietario-nome-{{ $index }}" [(ngModel)]="proprietario.nome">
+
+            </div>
+
+            <div>
+                <label for="idade-{{ $index }}">Idade:</label>
+                <input type="text" id="idade-{{ $index }}" name="proprietario-idade-{{ $index }}" [(ngModel)]="proprietario.idade">
+            </div>
+        
+        }
       </div>
       <div class="btn-flex">
           <button type="submit" (click)="save()">Save</button>

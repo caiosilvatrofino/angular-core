@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { Carro } from '../../../models/carro';
 import { RouterLink } from '@angular/router';
-import { inject } from '@angular/core';
 import { CarroService } from '../../../services/carro.service';
 
 @Component({
   selector: 'app-carroslist',
+  standalone: true,
   imports: [RouterLink],
   templateUrl: './carroslist.component.html',
   styleUrl: './carroslist.component.scss'
@@ -18,60 +18,43 @@ export class CarroslistComponent implements OnInit {
   currentPage = 1;
   totalPages = 1;
 
-  private carroService = inject(CarroService); 
-
-  constructor() { }
+  private carroService = inject(CarroService);
+  private cdr = inject(ChangeDetectorRef);
 
   ngOnInit(): void {
+    this.loadLista();
+  }
+
+  loadLista(): void {
     this.carroService.findAll().subscribe({
       next: lista => {
         this.lista = lista;
-        console.log(this.lista);
-        this.updatePagination(); // Atualiza a paginação com os dados do backend
-        this.handleNavigationState(); // Chama para tratar os dados da navegação
+        this.currentPage = 1;
+        this.updatePagination();
       },
-      error: erro => {
-        alert('Ocorreu erro para montar a lista de carros!');
+      error: () => {
+        alert('Erro ao carregar a lista de carros.');
       }
     });
   }
 
-  handleNavigationState(): void {
-    let carroNovo = history.state.carroNovo;
-    let carroEdited = history.state.carroEdited;
-
-    if (carroNovo) {
-      let tamanho = this.lista.length;
-      carroNovo.id = tamanho + 1;
-      this.lista.push(carroNovo);
-    }
-
-    if (carroEdited) {
-      let indice = this.lista.findIndex(x => { return x.id == carroEdited.id });
-      this.lista[indice] = carroEdited;
-    }
-  }
-
-  deleteById(carro : Carro){
-    if(confirm('Tem certeza que deseja deletar?')){
+  deleteById(carro: Carro) {
+    if (confirm('Tem certeza que deseja deletar?')) {
       this.carroService.delete(carro.id).subscribe({
         next: () => {
-          this.lista = this.lista.filter( c => c.id !== carro.id);
-          this.updatePagination();
+          this.loadLista(); // recarrega do backend após deletar
         },
-        error: erro => {
-          alert('Ocorreu erro para deletar.')
-        }
-      })
+        error: () => alert('Erro ao deletar o carro.')
+      });
     }
-
   }
 
   updatePagination() {
     this.totalPages = Math.ceil(this.lista.length / this.itemsPerPage);
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = startIndex + this.itemsPerPage;
-    this.pagedLista = this.lista.slice(startIndex, endIndex);
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    const end = start + this.itemsPerPage;
+    this.pagedLista = this.lista.slice(start, end);
+    this.cdr.detectChanges();
   }
 
   previousPage() {
