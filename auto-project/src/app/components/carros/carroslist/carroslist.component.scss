@@ -1,5 +1,5 @@
 .car-list-container {
-  background-color: #f8f9fa; /* Cor de fundo clara */
+  background-color: #f8f9fa;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -8,11 +8,11 @@
   h2 {
     margin-top: 0;
     margin-bottom: 20px;
-    color: #343a40; /* Cor de texto escura */
+    color: #343a40;
   }
 
   .new-car-button {
-    background-color: #007bff; /* Azul */
+    background-color: #007bff;
     color: white;
     border: none;
     padding: 8px 15px;
@@ -38,12 +38,30 @@
       padding: 12px;
       text-align: left;
       border-bottom: 1px solid #dee2e6;
+      vertical-align: middle;
     }
 
-    th {
+    thead th {
       background-color: #e9ecef;
       color: #495057;
       font-weight: bold;
+    }
+
+    // Cabeçalho da coluna de ações: centralizado horizontalmente
+    thead th:last-child {
+      text-align: center;
+    }
+
+    // Célula de Ações: botões alinhados à direita
+    td:last-child {
+      text-align: right;
+
+      .actions-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 8px;
+      }
     }
 
     tbody tr:last-child td {
@@ -62,7 +80,7 @@
       }
 
       &.edit-button {
-        background-color: #007bff; /* Azul */
+        background-color: #007bff;
         color: white;
 
         &:hover {
@@ -71,11 +89,20 @@
       }
 
       &.delete-button {
-        background-color: #dc3545; /* Vermelho */
+        background-color: #dc3545;
         color: white;
 
         &:hover {
           background-color: #c82333;
+        }
+      }
+
+      &.acessorios {
+        background-color: #17a2b8;
+        color: white;
+
+        &:hover {
+          background-color: #117a8b;
         }
       }
     }
@@ -86,7 +113,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-  
+
     button {
       padding: 8px 16px;
       margin: 0 5px;
@@ -96,11 +123,11 @@
       border-radius: 4px;
       transition: background-color 0.3s ease;
       color: #333;
-  
+
       &:hover {
         background-color: #e0e0e0;
       }
-  
+
       &:disabled {
         background-color: #ddd;
         cursor: not-allowed;
@@ -108,7 +135,7 @@
         border-color: #ddd;
       }
     }
-  
+
     span {
       margin: 0 10px;
       font-weight: bold;
