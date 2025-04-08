@@ -3,9 +3,9 @@
 API_URL="http://localhost:8080/api/carro/save"
 
 curl -X POST $API_URL -H "Content-Type: application/json" -d '{
-  "nome": "Ford Fiesta",
+  "nome": "Jeep Compass",
   "ano": 2017,
-  "cambio": "Manual",
+  "cambio": "Automático",
   "placa": "ABC0002",
   "km": "35000",
   "combustivel": "Etanol",
