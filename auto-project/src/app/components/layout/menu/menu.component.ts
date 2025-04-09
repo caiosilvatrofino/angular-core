@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, Inject } from '@angular/core';
+import { LoginService } from '../../../auth/login.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './menu.component.scss'
 })
 export class MenuComponent {
+
+  loginService =  inject(LoginService);
+
+  
+  
 
 }

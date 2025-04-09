@@ -5,6 +5,10 @@
             <li><a href="/admin/carros">Carros</a></li>
             <li><a href="/admin/serviço">Serviços</a></li>
             <li><a href="/admin/contato">Contato</a></li>
+            @if(loginService.hasPermission('admin')){
+             <li><a href="/admin/contato">Manager Acess</a></li>
+            }
+            
         </ul>
     </div>
 </nav>

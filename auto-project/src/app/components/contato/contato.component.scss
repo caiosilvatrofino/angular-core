@@ -1,157 +1,207 @@
 .contato-section {
-    background-color: #fff;
-    padding: 60px 0;
-    text-align: center;
-  
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-  
-    .contato-header {
-      margin-bottom: 40px;
-    }
-  
-    .contato-titulo {
-      font-size: 2.8em;
+  background-color: #fff;
+  padding: 60px 0;
+  text-align: center;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .contato-header {
+    margin-bottom: 40px;
+  }
+
+  .contato-titulo {
+    font-size: 2.8em;
+    color: #333;
+    margin-bottom: 15px;
+  }
+
+  .contato-subtitulo {
+    color: #777;
+    font-size: 1.2em;
+  }
+
+  .contato-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 30px;
+    text-align: left;
+  }
+
+  .contato-info {
+    h3.contato-info-titulo {
+      font-size: 2em;
       color: #333;
-      margin-bottom: 15px;
+      margin-bottom: 25px;
     }
-  
-    .contato-subtitulo {
-      color: #777;
-      font-size: 1.2em;
-    }
-  
-    .contato-wrapper {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 40px;
-      margin-top: 30px;
-      text-align: left;
-    }
-  
-    .contato-info {
-      h3.contato-info-titulo {
-        font-size: 2em;
-        color: #333;
-        margin-bottom: 25px;
-      }
-  
-      .contato-details {
-        list-style: none;
-        padding: 0;
-        margin-bottom: 30px;
-  
-        .contato-detail {
-          display: flex;
-          align-items: center;
-          margin-bottom: 15px;
-  
-          i {
-            font-size: 1.5em;
-            color: #007bff; /* Cor primária da sua marca */
-            margin-right: 15px;
-            width: 20px; /* Para alinhar os ícones */
-            text-align: center;
-          }
-  
-          .contato-detail-text {
-            color: #555;
-            font-size: 1.1em;
-          }
+
+    .contato-details {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 30px;
+
+      .contato-detail {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+
+        i {
+          font-size: 1.5em;
+          color: #007bff; /* Cor primária da sua marca */
+          margin-right: 15px;
+          width: 20px; /* Para alinhar os ícones */
+          text-align: center;
         }
-      }
-  
-      .redes-sociais {
-        h4.redes-sociais-titulo {
-          font-size: 1.2em;
-          color: #777;
-          margin-bottom: 10px;
-        }
-  
-        .redes-sociais-links {
-          a.rede-social-link {
-            display: inline-block;
-            margin-right: 15px;
-            font-size: 1.8em;
-            color: #777;
-            transition: color 0.3s ease;
-  
-            &:hover {
-              color: #007bff; /* Cor primária da sua marca */
-            }
-          }
-        }
-      }
-    }
-  
-    .contato-formulario {
-      h3.contato-formulario-titulo {
-        font-size: 2em;
-        color: #333;
-        margin-bottom: 25px;
-      }
-  
-      .formulario {
-        .form-group {
-          margin-bottom: 20px;
-  
-          .form-label {
-            display: block;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 8px;
-            font-size: 1.1em;
-          }
-  
-          .form-input,
-          .form-textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1em;
-            transition: border-color 0.3s ease;
-  
-            &:focus {
-              outline: none;
-              border-color: #007bff; /* Cor primária da sua marca */
-            }
-          }
-  
-          .form-textarea {
-            resize: vertical;
-            min-height: 100px;
-          }
-        }
-  
-        .botao-enviar {
-          background-color: #007bff; /* Cor primária da sua marca */
-          color: #fff;
-          padding: 14px 30px;
-          border: none;
-          border-radius: 8px;
+
+        .contato-detail-text {
+          color: #555;
           font-size: 1.1em;
-          cursor: pointer;
-          transition: background-color 0.3s ease;
-  
+        }
+      }
+    }
+
+    .redes-sociais {
+      h4.redes-sociais-titulo {
+        font-size: 1.2em;
+        color: #777;
+        margin-bottom: 10px;
+      }
+
+      .redes-sociais-links {
+        a.rede-social-link {
+          display: inline-block;
+          margin-right: 15px;
+          font-size: 1.8em;
+          color: #777;
+          transition: color 0.3s ease;
+
           &:hover {
-            background-color: #0056b3; /* Cor primária mais escura para o hover */
+            color: #007bff; /* Cor primária da sua marca */
           }
         }
       }
     }
   }
-  
-  /* Opcional: Estilos responsivos para telas menores */
-  @media (max-width: 768px) {
-    .contato-wrapper {
-      grid-template-columns: 1fr; // Uma coluna em telas menores
+
+  .contato-formulario {
+    h3.contato-formulario-titulo {
+      font-size: 2em;
+      color: #333;
+      margin-bottom: 25px;
     }
-  
-    .contato-info {
-      margin-bottom: 30px; // Adiciona espaço entre as seções em telas menores
+
+    .formulario {
+      .form-group {
+        margin-bottom: 20px;
+
+        .form-label {
+          display: block;
+          font-weight: bold;
+          color: #333;
+          margin-bottom: 8px;
+          font-size: 1.1em;
+        }
+
+        .form-input,
+        .form-textarea {
+          width: 100%;
+          padding: 10px; 
+          border: 1px solid #ccc;
+          border-radius: 4px; 
+          font-size: 0.9em; 
+          transition: border-color 0.3s ease;
+
+          &:focus {
+            outline: none;
+            border-color: #007bff;
+          }
+        }
+
+        .form-textarea {
+          resize: vertical;
+          min-height: 80px; 
+        }
+      }
+
+      .fileEdit {
+        display: inline-block;
+        padding: 8px 15px; 
+        font-size: 16px; 
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #555; 
+        background-color: #333;
+        border: 1px solid #ccc; 
+        border-radius: 4px; 
+        box-shadow: none; 
+        transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        margin-bottom: 15px; 
+
+        &:hover {
+          background-color: #eee;
+          border-color: #999;
+          color: #333;
+        }
+
+        &::-webkit-file-upload-button {
+          visibility: hidden;
+          width: 0;
+        }
+
+        &::before {
+          content: 'Selecionar Arquivo';
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 6px 10px; 
+          outline: none;
+          white-space: nowrap;
+          cursor: pointer;
+          font-weight: normal; 
+          font-size: 0.9em; 
+          background-color: #fff;
+          color: #777; 
+          transition: all 0.3s ease;
+        }
+
+        &:hover::before {
+          border-color: #999;
+          color: #333;
+          background-color: #eee;
+        }
+      }
+
+      .botao-enviar {
+        background-color: #007bff; 
+        color: #fff;
+        padding: 12px 25px; 
+        border: none;
+        border-radius: 6px; 
+        font-size: 1em; 
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #0056b3; 
+        }
+      }
     }
   }
+}
+
+/* Opcional: Estilos responsivos para telas menores */
+@media (max-width: 768px) {
+  .contato-wrapper {
+    grid-template-columns: 1fr; /* Uma coluna em telas menores */
+  }
+
+  .contato-info {
+    margin-bottom: 30px; /* Adiciona espaço entre as seções em telas menores */
+  }
+}

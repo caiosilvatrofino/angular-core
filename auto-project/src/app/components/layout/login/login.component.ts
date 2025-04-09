@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router'; // Importe o Router aqui
+import { LoginService } from '../../../auth/login.service';
+import { Login } from '../../../auth/login';
 
 
 @Component({
@@ -11,17 +13,33 @@ import { Router } from '@angular/router'; // Importe o Router aqui
 })
 export class LoginComponent {
 
-  usuario!: string;
-  senha!: string;
+  login: Login = new Login();
 
-  constructor(private router: Router) {}
+  router = inject(Router);
 
-  logar() {
-    if(this.usuario == 'admin' && this.senha == 'admin'){
-      this.router.navigate(['admin/carros'])
-    } else {
-      alert('Usuario ou senha incorreta')
-    }
+  loginService = inject(LoginService);
+
+  constructor(){
+    
+
   }
+
+  logar(){
+    this.loginService.logar(this.login).subscribe({
+      next: token => {
+        console.log(token);
+        if(token) {
+          this.loginService.addToken(token);
+          this.router.navigate(['/admin/carros']);
+        } else {
+          alert('Usuario incorreto!');
+        }
+      },
+      error: erro => {
+        alert('Credenciais invalidas para o login.')
+      }
+    });
+  }
+
 
 }
